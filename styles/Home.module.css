@@ -1,8 +1,54 @@
 
 
+.home {
+    display: flex;
+}
+
 .main {
+    margin: 1rem 0;
     font-family: 'Inter';
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     height: 100vh;
-    padding: 1rem
+    padding: 1rem;
+    min-width: 100px;
+
+
+    /* I hate this but IDK how else to do it */
+    width: calc(100vw - 250px - 150px); 
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+.line {
+    background-color: black;
+    height: 1px;
+}
+
+.callwrapper {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.call {
+    filter: var(--droplight);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 20px;
+    width: auto;
+}
+
+.call h2 {
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+
+.call p {
+    font-size: .8rem;;
+}
+
+.call span {
+    font-weight: bold;
 }

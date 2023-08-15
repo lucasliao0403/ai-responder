@@ -4,7 +4,7 @@
     width: 250px;
     margin: 1rem;
     border-radius: 20px;
-    filter: drop-shadow(0 0 15px rgba(var(--darkpurple), .15));
+    filter: var(--dropdefault);
     display: flex;
     flex-direction: column;
 }

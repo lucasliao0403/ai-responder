@@ -20,7 +20,7 @@ function Navbar() {
                             <h2> Dashboard </h2>
                         </div>
                     </Link>
-                    <Link href='/' className={styles.link}>
+                    <Link href='/Map' className={styles.link}>
                         <div className={styles.item} > 
                             <Image
                                 src={require("/public/map.png")}
@@ -31,7 +31,7 @@ function Navbar() {
                             <h2> Map </h2>
                         </div>
                     </Link>
-                    <Link href='/' className={styles.link}>
+                    <Link href='/settings' className={styles.link}>
                         <div className={styles.item}> 
                             <Image
                                 src={require("/public/settings.png")}
