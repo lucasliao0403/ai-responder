@@ -14,7 +14,7 @@
 
 
     /* I hate this but IDK how else to do it */
-    width: calc(100vw - 250px - 150px); 
+    width: calc(100vw - 300px - 200px); 
 }
 
 .title {
@@ -32,7 +32,7 @@
     margin: 1rem 0;
 }
 
-.call {
+.card {
     filter: var(--droplight);
     background-color: white;
     padding: 1rem;
@@ -40,15 +40,46 @@
     width: auto;
 }
 
-.call h2 {
+.card:hover {
+    transition: outline-width .05s linear;
+    cursor: pointer;
+    outline: red 2px solid;
+}
+
+.card h2 {
     font-size: 1.2rem;
     margin-bottom: .5rem;
 }
 
-.call p {
+.card p {
     font-size: .8rem;;
 }
 
-.call span {
+.card span {
     font-weight: bold;
+}
+
+.cardactive {
+    /* card is fullscreen */
+    width: 100%;
+    padding: 2rem 4rem;
+}
+
+.cardactive:hover {
+    transition: outline-width .05s linear;
+    cursor: default;
+    outline: none;
+}
+
+.bodyactive {
+    margin: 1rem 0;
+}
+
+.bodyactive h1 {
+    font-size: 2rem;
+}
+
+.bodyactive p{
+    font-size: 1.2rem;
+    padding: .5rem 0;
 }

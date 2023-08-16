@@ -20,7 +20,7 @@ function Navbar() {
                             <h2> Dashboard </h2>
                         </div>
                     </Link>
-                    <Link href='/Map' className={styles.link}>
+                    <Link href='/map' className={styles.link}>
                         <div className={styles.item} > 
                             <Image
                                 src={require("/public/map.png")}

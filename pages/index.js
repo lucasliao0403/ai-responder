@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import { useState } from 'react'
+import { motion } from "framer-motion"
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,17 +13,23 @@ let calls = [ // TEMPORARY: ADD IN CALLS LATER
         name: "call name 1", // what to do with call name? is this necessary?
         status: "Ongoing", 
         time: "13:01:02",
-        location: "Park Village"
+        location: "Park Village",
+        id: "test"
     },
     {
         name: "call name 2",
         status: "Completed", 
         time: "15:02:35",
-        location: "Ya Muthas House"
+        location: "Ya Muthas House",
+        id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
     },
 ]
 
 export default function Home() {
+
+    const [cardActive, setCardActive] = useState("")
+    console.log(cardActive)
+
   return (
     <div className={styles.home}>
       <Head>
@@ -30,18 +39,48 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
+        { (cardActive=="") ?
         <div className={styles.header}>
             <h1 className={styles.title}> Emergencies </h1>
             <div className={styles.line}/>
-        </div>
+        </div> 
+        : <></>
+        }
+
         <div className={styles.callwrapper}>
             {calls.map( (call) => (
-                <div className={styles.call}>
-                    <h2> {call.name} </h2>
-                    <p> Status: <span>{call.status}</span></p>
-                    <p> Call Started: <span>{call.time}</span></p>
-                    <p> Location: <span>{call.location}</span></p>
-                </div>
+
+                (cardActive==call.id || cardActive=="") ? 
+                <div className={cardActive==call.id ? `${styles.card} ${styles.cardactive}` : styles.card} onClick={() => 
+                {
+                    if (!(cardActive==call.id)) {
+                        setCardActive(call.id) 
+                    }
+                }}>
+
+                    { cardActive==call.id ? 
+
+                    <div> {/* fullscreen */}
+                        <div className={styles.header}>
+                            <h1 className={styles.titleactive}> {call.name} </h1>
+                            <div className={styles.line}/>
+                        </div> 
+                        <div className={styles.bodyactive}> 
+                            <p> Status: <span>{call.status}</span></p>
+                            <p> Call Started: <span>{call.time}</span></p>
+                            <p> Location: <span>{call.location}</span></p>
+                        </div>
+                        <button onClick={() => setCardActive("")}> exit </button>
+                    </div> 
+                    
+                    : <div> {/* card not fullscreen */}
+                        <h2> {call.name} </h2>
+                        <p> Status: <span>{call.status}</span></p>
+                        <p> Call Started: <span>{call.time}</span></p>
+                        <p> Location: <span>{call.location}</span></p>
+                    </div>
+                    }
+                </div> : <></>
             ))}
         </div>    
       </main>
