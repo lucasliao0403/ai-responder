@@ -10,7 +10,28 @@
     --dropdefault: drop-shadow(0 0 15px rgba(var(--darkpurple), .15));
     --droplight: drop-shadow(0 0 8px rgba(var(--darkpurple), .15));
 
-    font-family: 'Inter'
+    font-family: 'Inter';
+    /* width */
+    ::-webkit-scrollbar {
+    width: 10px;
+    }
+  
+    /* Track */
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+        /* outline: 1px solid rgba(255, 255, 255, .5); */
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: rgba(var(--darkpurple), .8);
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 }
 
 

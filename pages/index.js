@@ -4,26 +4,13 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useState } from 'react'
 import { motion } from "framer-motion"
+import {calls} from './constants.js'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
-let calls = [ // TEMPORARY: ADD IN CALLS LATER
-    {
-        name: "call name 1", // what to do with call name? is this necessary?
-        status: "Ongoing", 
-        time: "13:01:02",
-        location: "Park Village",
-        id: "test"
-    },
-    {
-        name: "call name 2",
-        status: "Completed", 
-        time: "15:02:35",
-        location: "Ya Muthas House",
-        id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-    },
-]
+
+
 
 export default function Home() {
 
@@ -57,12 +44,22 @@ export default function Home() {
                         setCardActive(call.id) 
                     }
                 }}>
-
                     { cardActive==call.id ? 
+
+
 
                     <div> {/* fullscreen */}
                         <div className={styles.header}>
+                            <div className={styles.titlewrapper}>
                             <h1 className={styles.titleactive}> {call.name} </h1>
+                            <motion.img
+                            
+                                className={styles.exit}
+                                onClick={() => setCardActive("")}
+                                src={"/cross.png"}
+                                whileHover={{ scale: 1.1, rotate: -90 }}
+                                whileTap={{ scale: 0 }}/> 
+                            </div>
                             <div className={styles.line}/>
                         </div> 
                         <div className={styles.bodyactive}> 
@@ -70,8 +67,27 @@ export default function Home() {
                             <p> Call Started: <span>{call.time}</span></p>
                             <p> Location: <span>{call.location}</span></p>
                         </div>
-                        <button onClick={() => setCardActive("")}> exit </button>
+                        <div className={styles.log}>
+                            <h2> Log </h2>
+                            <div className={styles.line}/>
+                            <div className={styles.logbody}>
+                                {call.log.map( (log) => (
+                                    <p> {log.time} &nbsp; {log.speaker}: <span>{log.text}</span> </p> 
+                                ))}
+                            </div>
+
+                        </div>
+                        <h1 className={styles.dispatchtitle}> Dispatch </h1>
+                        <div className={styles.line}/>
+
+                        <div className={styles.dispatch}>
+                            <motion.div className={`${styles.dispatchicon} ${styles.icon1}`} whileHover={{ scale: 1.1, }}> <p>TORONTO FIRE SERVICES</p> </motion.div>
+                            <motion.div className={`${styles.dispatchicon} ${styles.icon2}`} whileHover={{ scale: 1.1, }}> <p>TORONTO POLICE SERVICES</p> </motion.div>
+                            <motion.div className={`${styles.dispatchicon} ${styles.icon3}`} whileHover={{ scale: 1.1, }}> <p>TORONTO PARAMEDIC SERVICES</p> </motion.div>
+                        </div>
                     </div> 
+
+
                     
                     : <div> {/* card not fullscreen */}
                         <h2> {call.name} </h2>
