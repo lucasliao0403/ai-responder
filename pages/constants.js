@@ -39,7 +39,7 @@ export const calls = [ // TEMPORARY: ADD IN CALLS LATER
         ],
     },
     {
-        name: "call name 2",
+        name: "call conan",
         status: "Completed", 
         time: "15:02:35",
         location: "Ya Muthas House",
