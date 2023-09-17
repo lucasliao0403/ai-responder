@@ -25,7 +25,7 @@ export default function Home() {
     const [selectedCard, setSelectedCard] = useState("efnwhfwhn1");
     const [data, setData] = useState(liveData);
     const [priorityCard, setpriorityCard] = useState(automatedData);
-    let labels = ["1", "2", "3", "4", "5"];
+    let labels = ["Incoming", "1", "2", "3", "4", "5"];
 
     const updateLabel = (e) => {
         let theCards = [];

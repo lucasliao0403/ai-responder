@@ -16,7 +16,7 @@ const PriorityCards = ({
   setSelectedCard,
 }) => {
   // setting up webserver connection
-  const socket = io("http://localhost:3001", { transports: ["websocket"] });
+  const socket = io("http://localhost:3000", { transports: ["websocket"] });
 
   // setting up hugging face api
   let api_token = process.env.REACT_APP_HFTOKEN;
@@ -58,11 +58,14 @@ const PriorityCards = ({
     return result;
   }
 
+
   return (
     <div>
       <h3 className={styles.priorityheader}>
         Level {priority} Priority
       </h3>
+
+      
 
       {priorityCard.map((card) => {
         if (
