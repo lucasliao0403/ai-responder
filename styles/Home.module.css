@@ -176,5 +176,13 @@
 
 .attendedselect {
     filter: var(--droplight);
-    /* border: none; */
+    border: none;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.attendedselectactive {
+    background-color: darkslategray;
+    color:white;
 }

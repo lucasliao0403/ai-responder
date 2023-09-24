@@ -21,7 +21,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-    const [automated, setautomated] = useState(true);
+    const [automated, setAutomated] = useState(true);
     const [selectedCard, setSelectedCard] = useState("efnwhfwhn1");
     const [data, setData] = useState(liveData);
     const [priorityCard, setpriorityCard] = useState(automatedData);
@@ -77,11 +77,11 @@ export default function Home() {
         : <></> }
         <div>
             <div className={styles.attended}>
-                <button onClick={() => setautomated(true)} className={styles.attendedselect}>
+                <button onClick={() => setAutomated(true)} className={`${styles.attendedselect} ${automated ? `${styles.attendedselectactive}` : ""}`}>
                     <h3>Automated</h3>
                 </button>
                 <button
-                    onClick={() => setautomated(false)} className={styles.attendedselect}>
+                    onClick={() => setAutomated(false)} className={`${styles.attendedselect} ${!automated ? `${styles.attendedselectactive}` : ""}`}>
                     <h3>Live Attended</h3>
                 </button>
             </div>
